@@ -1,0 +1,17 @@
+@using MessageBoard.Models
+
+<h1>Groups</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No groups have been added yet</h3>
+}
+
+<ul>
+  @foreach(Group group in Model)
+  {
+    <li>@Html.ActionLink($"{group.GroupName}", "Details", new { id = group.GroupId } )</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Create a new group", "Create")</p>

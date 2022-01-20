@@ -1,0 +1,25 @@
+@using MessageBoard.Models;
+@model IEnumerable<MessageBoard.Models.EndUser>
+
+@*EndUsers - logged in
+- index - User info & groups & All messages organized by group
+    - Message Create (link)
+    - Message Delete (in page for each message?)
+    - Message DeleteAll (link)*@
+
+<h1>Something for @User.Identity.Name</h1>
+
+@if(Model.Any())
+{
+  <ul>
+    @foreach (EndUser endUser in Model)
+    {
+      <li>@Html.ActionLink($"{endUser.Name}", "Details", new { id = endUser.EndUserId })</li>
+    }
+  </ul>
+}
+else{
+  <h3>Nothing has been added!</h3>
+}
+
+<p>@Html.ActionLink("Create new message", "Create")</p>

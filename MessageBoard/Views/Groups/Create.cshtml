@@ -1,0 +1,11 @@
+@model MessageBoard.Models.Group
+
+<h4>Add a new group</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.GroupName)
+  @Html.TextBoxFor(model => model.GroupName)
+  <input type="submit" value="Add new group" />
+}
+
+<p>@Html.ActionLink("Show all groups", "Index")</p>

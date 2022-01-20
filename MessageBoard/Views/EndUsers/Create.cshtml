@@ -1,0 +1,18 @@
+@model MessageBoard.Models.Message
+
+<h4>Add a new message</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Post)
+  @Html.TextBoxFor(model => model.Post)
+
+  @Html.Label("Select group")
+  @Html.DropDownList("GroupId")
+  
+  <input type="submit" value="Create message" class="btn btn-default"/>
+
+  
+}
+
+<p>@Html.ActionLink("Back to messages", "Index")</p>
